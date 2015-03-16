@@ -1,0 +1,33 @@
+name: FSurvivalGame
+main: FSurvivalGame\Main
+version: 1.0.3
+api: [1.0.0]
+load: POSTWORLD
+author: FENGberd
+commands:
+ fsg:
+  permission: FSurvivalGame.command.fsg
+  description: FSurvivalGame主命令
+  usage: /fsg <set|remove>
+ lobby:
+  permission: FSurvivalGame.command.lobby
+  description: 退出游戏
+  usage: /lobby
+permissions:
+ FSurvivalGame.*:
+  description: 根权限qwq
+  default: op
+  children:
+   FSurvivalGame.command.*:
+    description: 使用命令权限
+    default: op
+    children:
+     FSurvivalGame.command.lobby:
+      description: 退出房间指令
+      default: true
+     FSurvivalGame.command.fsg:
+      description: 设置饥饿游戏
+      default: op
+   FSurvivalGame.touch.startgame:
+    description: 点击牌子加入游戏
+    default: true
